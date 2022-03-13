@@ -1,24 +1,23 @@
 ﻿@model Entities.Concrete.SubCategory
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detaylar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
 
 <div>
-    <h4>SubCategory</h4>
+    <h4>Konu Detayları</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SubCategoryName)
+            @Html.DisplayName("Konu Adı")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.SubCategoryName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
+        <dt class="col-sm-2">
+            @Html.DisplayName("Kategori Adı")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Category.CategoryName)
@@ -26,6 +25,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.SubCategoryId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.SubCategoryId">Düzenle</a> |
+    <a asp-action="Index">Listeye Dön</a>
 </div>

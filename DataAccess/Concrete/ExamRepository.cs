@@ -26,7 +26,7 @@ namespace DataAccess.Concrete
         {
             using (ExamDbContext context = new ExamDbContext())
             {
-                var result = context.Questions.Where(q=>q.ExamId==examId);
+                var result = context.Questions.Where(q=>q.ExamId==examId).Include(q=>q.Exam).Include(q=>q.SubCategory);
                 return result.ToList();
             }
         }

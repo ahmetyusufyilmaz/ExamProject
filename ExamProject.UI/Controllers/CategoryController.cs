@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Concrete;
 using Entities.Concrete;
+using ExamProject.UI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,17 +12,16 @@ using System.Threading.Tasks;
 
 namespace ExamProject.UI.Controllers
 {
-  
-
     public class CategoryController : Controller
     {
 
-     
+        private readonly ISubCategoryService _subCategoryService;
         private readonly ICategoryService _categoryService;
 
-        public CategoryController(ICategoryService categoryService)
+        public CategoryController(ICategoryService categoryService,ISubCategoryService subCategoryService)
         {
             _categoryService = categoryService;
+            _subCategoryService = subCategoryService;
         }
 
         public IActionResult Index()
@@ -29,21 +29,19 @@ namespace ExamProject.UI.Controllers
             return View(_categoryService.GetAll());
         }
 
-        // GET: HomeController1/Details/5
         public ActionResult Details(int id)
         {
-            Category category = _categoryService.GetById(id);
-
-            return View(category);
+            CategoriesViewModel model = new CategoriesViewModel();
+            model.Category = _categoryService.GetAll().SingleOrDefault(x=>x.CategoryId==id);
+            model.SubCategory = _subCategoryService.GetByCategories().Where(x=>x.CategoryId==id).ToList();
+            return View(model);
         }
 
-        // GET: HomeController1/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: HomeController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Category category)
@@ -57,13 +55,12 @@ namespace ExamProject.UI.Controllers
             return View(category);
         }
 
-        // GET: HomeController1/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, int _) 
         {
-            return View();
+            var result = _categoryService.GetAll().SingleOrDefault(q => q.CategoryId == id);
+            return View(result);
         }
 
-        // POST: HomeController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Category category)
@@ -75,13 +72,12 @@ namespace ExamProject.UI.Controllers
 
         }
 
-        // GET: HomeController1/Delete/5
-        public ActionResult Delete()
+        public ActionResult Delete(int id, int _)
         {
-            return View();
+            var result = _categoryService.GetAll().SingleOrDefault(q => q.CategoryId == id);
+            return View(result);
         }
 
-        // POST: HomeController1/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
@@ -91,11 +87,6 @@ namespace ExamProject.UI.Controllers
             return RedirectToAction("Index");
 
         }
-
-
-
-
-
 
     }
 }

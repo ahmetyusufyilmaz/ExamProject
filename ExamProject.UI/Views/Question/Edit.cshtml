@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit"style="margin-left:10px">
+        <form asp-action="Edit" style="margin-left:10px">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="QuestionId" />
             <div class="form-group">
@@ -24,19 +24,50 @@
                 <input asp-for="CorrectAnswer" class="form-control" />
                 <span asp-validation-for="CorrectAnswer" class="text-danger"></span>
             </div>
+
+
+            <div class="form-group">
+                <label asp-for="QuestionAnswer.Option1" class="control-label"><b>A Şıkkı</b></label>
+                <input asp-for="QuestionAnswer.Option1" class="form-control" />
+                <span asp-validation-for="QuestionAnswer.Option1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="QuestionAnswer.Option2" class="control-label"><b>B Şıkkı</b></label>
+                <input asp-for="QuestionAnswer.Option2" class="form-control" />
+                <span asp-validation-for="QuestionAnswer.Option2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="QuestionAnswer.Option3" class="control-label"><b>C Şıkkı</b></label>
+                <input asp-for="QuestionAnswer.Option3" class="form-control" />
+                <span asp-validation-for="QuestionAnswer.Option3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="QuestionAnswer.Option4" class="control-label"><b>D Şıkkı</b></label>
+                <input asp-for="QuestionAnswer.Option4" class="form-control" />
+                <span asp-validation-for="QuestionAnswer.Option4" class="text-danger"></span>
+            </div>
+
+
             <div class="form-group">
                 <label asp-for="ExamId" class="control-label"><b>Sınav ID</b></label>
-                <select asp-for="ExamId" class="form-control" asp-items="ViewBag.ExamId"></select>
+                <input asp-for="ExamId" class="form-control" />
                 <span asp-validation-for="ExamId" class="text-danger"></span>
             </div>
+
+
+
             <div class="form-group">
                 <label asp-for="SubCategoryId" class="control-label"><b>Konu ID</b></label>
-                <select asp-for="SubCategoryId" class="form-control" asp-items="ViewBag.SubCategoryId"></select>
+                <input asp-for="SubCategoryId" class="form-control" />
                 <span asp-validation-for="SubCategoryId" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="QuestionType" class="control-label"><b>Soru Tipi</b></label>
-                <select asp-for="QuestionType" class="form-control"></select>
+                <input asp-for="QuestionType" class="form-control" />
                 <span asp-validation-for="QuestionType" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -18,6 +18,8 @@ namespace Entities.Concrete
         public string UserSurname { get; set; }
         [StringLength(50)]
         public string UserMail { get; set; }
+
+        public string Password { get; set; }
         public ICollection<Exam> Exams { get; set; }
 
     }

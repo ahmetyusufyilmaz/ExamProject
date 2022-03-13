@@ -28,7 +28,7 @@ namespace ExamProject.UI.Controllers
         // GET: SubCategoryController/Details/5
         public ActionResult Details(int id)
         {
-            SubCategory subCategory = _subCategoryService.GetById(id);
+            SubCategory subCategory = _subCategoryService.GetByCategories().SingleOrDefault(x=>x.SubCategoryId==id);
 
             return View(subCategory);
         }
@@ -55,9 +55,10 @@ namespace ExamProject.UI.Controllers
         }
 
         // GET: SubCategoryController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id,int _)
         {
-            return View();
+            var result = _subCategoryService.GetByCategories().SingleOrDefault(q => q.SubCategoryId == id);
+            return View(result);
         }
 
         // POST: SubCategoryController/Edit/5
@@ -72,7 +73,8 @@ namespace ExamProject.UI.Controllers
         // GET: SubCategoryController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var result = _subCategoryService.GetByCategories().SingleOrDefault(q => q.SubCategoryId == id);
+            return View(result);
         }
 
         // POST: SubCategoryController/Delete/5

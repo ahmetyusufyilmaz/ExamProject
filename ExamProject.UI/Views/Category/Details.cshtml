@@ -1,8 +1,9 @@
-﻿@model Entities.Concrete.Category
+﻿@model ExamProject.UI.ViewModels.CategoriesViewModel
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var viewDataStore = ViewData["category"];
 }
 
 <h3>Kategori Detayları</h3>
@@ -15,23 +16,28 @@
             @Html.DisplayName("Kategori ID")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CategoryId)
+            @Html.DisplayFor(model => model.Category.CategoryId)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayName("Kategori Adı")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CategoryName)
+            @Html.DisplayFor(model => model.Category.CategoryName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayName("Konular")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SubCategories)
+            @foreach (var item in Model.SubCategory)
+            {
+             
+                    @Html.DisplayFor(modelItem => item.SubCategoryName)
+         
+            }
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.CategoryId">Düzenle</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Category.CategoryId">Düzenle</a> |
     <a asp-action="Index">Listeye dön</a>
 </div>

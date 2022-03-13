@@ -17,10 +17,16 @@ namespace DataAccess.Concrete
         {
             using (ExamDbContext context = new ExamDbContext())
             {
-                var result = context.Questions.Include(u => u.QuestionAnswer).Include(u=>u.Exam).Include(u=>u.SubCategory);
+                var result = context.Questions.Include(u => u.QuestionAnswer).Include(u => u.Exam).Include(u => u.SubCategory);
                 return result.ToList();
             }
         }
+
+      
+        
+
+
+       
 
     }
 }

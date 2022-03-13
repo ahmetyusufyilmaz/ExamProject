@@ -33,9 +33,9 @@ namespace ExamProject.UI.Controllers
 
         public ActionResult Details(int id)
         {
-            Exam category = _examService.GetById(id);
+            Exam exam = _examService.GetByCategories().SingleOrDefault(x=>x.ExamId==id);
 
-            return View(category);
+            return View(exam);
         }
 
        
@@ -58,9 +58,10 @@ namespace ExamProject.UI.Controllers
             return View(exam);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id,int _)
         {
-            return View();
+            var result = _examService.GetAll().SingleOrDefault(q => q.ExamId == id);
+            return View(result);
         }
 
         
@@ -76,9 +77,10 @@ namespace ExamProject.UI.Controllers
         }
 
      
-        public ActionResult Delete()
+        public ActionResult Delete(int id, int _)
         {
-            return View();
+            var result = _examService.GetAll().SingleOrDefault(q => q.ExamId == id);
+            return View(result);
         }
 
      

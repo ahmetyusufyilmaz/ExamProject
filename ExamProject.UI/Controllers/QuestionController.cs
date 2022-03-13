@@ -27,9 +27,12 @@ namespace ExamProject.UI.Controllers
 
         public ActionResult Details(int id)
         {
-            Question question = _questionService.GetById(id);
+            Question question = _questionService.GetAllQuestionWithQuestionAnswers().SingleOrDefault(x=>x.QuestionId==id);
 
             return View(question);
+
+
+
         }
 
 
@@ -52,9 +55,10 @@ namespace ExamProject.UI.Controllers
             return View(question);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, int _)
         {
-            return View();
+            var result = _questionService.GetAllQuestionWithQuestionAnswers().SingleOrDefault(q => q.QuestionId == id);
+            return View(result);
         }
 
 
@@ -69,7 +73,7 @@ namespace ExamProject.UI.Controllers
 
         }
 
-        [HttpGet("{id}")]
+      
         public ActionResult Delete(int id,int _)
         {
            var result= _questionService.GetAllQuestionWithQuestionAnswers().SingleOrDefault(q=>q.QuestionId==id);
