@@ -69,10 +69,11 @@ namespace ExamProject.UI.Controllers
 
         }
 
-
-        public ActionResult Delete()
+        [HttpGet("{id}")]
+        public ActionResult Delete(int id,int _)
         {
-            return View();
+           var result= _questionService.GetAllQuestionWithQuestionAnswers().SingleOrDefault(q=>q.QuestionId==id);
+            return View(result);
         }
 
 

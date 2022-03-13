@@ -11,5 +11,6 @@ namespace DataAccess.Abstract
     public interface IExamRepository: IEntityRepository<Exam>
     {
         List<Exam> GetByCategories();
+        List<Question> GetQuestionsByExam(int examId);
     }
 }

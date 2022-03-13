@@ -54,7 +54,7 @@
                     @Html.DisplayFor(modelItem => item.Category.CategoryName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ExamName)
+                    <a href="GetQuestionsByExam/@item.ExamId">    @Html.DisplayFor(modelItem => item.ExamName)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Duration)

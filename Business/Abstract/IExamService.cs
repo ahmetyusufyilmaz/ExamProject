@@ -11,6 +11,7 @@ namespace Business.Abstract
     {
         List<Exam> GetAll();
 
+        List<Question> GetQuestionsByExam(int examId);
         List<Exam> GetByCategories();
         List<Exam> GetAllByCategoryId(int id);
 

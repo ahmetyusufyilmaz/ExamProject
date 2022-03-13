@@ -22,5 +22,16 @@ namespace DataAccess.Concrete
         }
 
 
+        public List<Question> GetQuestionsByExam(int examId)
+        {
+            using (ExamDbContext context = new ExamDbContext())
+            {
+                var result = context.Questions.Where(q=>q.ExamId==examId);
+                return result.ToList();
+            }
+        }
+
+
+
     }
 }

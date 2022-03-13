@@ -25,7 +25,12 @@ namespace ExamProject.UI.Controllers
             return View(_examService.GetByCategories());
         }
 
-    
+        public IActionResult GetQuestionsByExam(int id)
+        {
+            return View(_examService.GetQuestionsByExam(id));
+        }
+
+
         public ActionResult Details(int id)
         {
             Exam category = _examService.GetById(id);
