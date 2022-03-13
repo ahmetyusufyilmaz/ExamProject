@@ -10,8 +10,8 @@ namespace Entities.Concrete
 {
     public enum QuestionType
     {
-        OptionsType = 0,
-        DescriptionType = 1
+        Test = 0,
+        Açıklamalı = 1
     }
     public class Question : IEntity
     {

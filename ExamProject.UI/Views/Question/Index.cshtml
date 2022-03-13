@@ -5,82 +5,83 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h3 style="margin-left:5px">Sorular</h3>
 <h2></h2>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<div>
+    @Html.ActionLink("Yeni Soru Oluştur", "Create", new { }, new { @class = "btn btn-success" })
+</div>
+<table class="table table-hover table-bordered">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.QuestionText)
+                @Html.DisplayName("Soru")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.QuestionAnswer.Option1)
+                @Html.DisplayName("A")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.QuestionAnswer.Option2)
+                @Html.DisplayName("B")
 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.QuestionAnswer.Option3)
+                @Html.DisplayName("C")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.QuestionAnswer.Option4)
+                @Html.DisplayName("D")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CorrectAnswer)
+                @Html.DisplayName("Doğru Cevap")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Exam)
+                @Html.DisplayName("Sınav Adı")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SubCategory)
+                @Html.DisplayName("Sınav Konusu")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.QuestionType)
+                @Html.DisplayName("Soru Tipi")
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuestionText)
-            </td>
-            <td>
-                @item.QuestionAnswer.Option1
-            </td>
-            <td>
-                @item.QuestionAnswer.Option2
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuestionText)
+                </td>
+                <td>
+                    @item.QuestionAnswer.Option1
+                </td>
+                <td>
+                    @item.QuestionAnswer.Option2
 
-            </td>
-            <td>
-                @item.QuestionAnswer.Option3
-            </td>
-            <td>
-                @item.QuestionAnswer.Option4
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CorrectAnswer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Exam.ExamName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubCategory.SubCategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuestionType)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.QuestionId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.QuestionId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.QuestionId">Delete</a>
-            </td>
-        </tr>
-}
+                </td>
+                <td>
+                    @item.QuestionAnswer.Option3
+                </td>
+                <td>
+                    @item.QuestionAnswer.Option4
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CorrectAnswer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Exam.ExamName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubCategory.SubCategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuestionType)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.QuestionId }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.QuestionId }, new { @class = "btn btn-dark" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.QuestionId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -10,6 +10,8 @@ namespace Business.Abstract
     public interface IExamService
     {
         List<Exam> GetAll();
+
+        List<Exam> GetByCategories();
         List<Exam> GetAllByCategoryId(int id);
 
         Exam GetById(int examId);

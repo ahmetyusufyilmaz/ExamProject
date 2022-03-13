@@ -5,80 +5,83 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h3 style="margin-left:5px">Sınav Listesi</h3>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<div>
+    @Html.ActionLink("Yeni Sınav Oluştur", "Create", new { }, new { @class = "btn btn-success" })
+</div>
+<table class="table table-hover table-bordered">
     <thead>
-        <tr>
+        <tr class="table-active" style="font-family:'Arial'">
             <th>
-                @Html.DisplayNameFor(model => model.ExamName)
+                @Html.DisplayName("Ders")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Duration)
+                @Html.DisplayName("Sınav Adı")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NumberOfQuestions)
+                @Html.DisplayName("Süre")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayName("Soru Sayısı")
+            </th>
+
+            <th>
+                @Html.DisplayName("Geçer Not")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SuccessGrade)
+                @Html.DisplayName("Başlangıç Tarihi")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StartDate)
+                @Html.DisplayName("Bitiş Tarihi")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EndDate)
+                @Html.DisplayName("Aktif mi?")
             </th>
+
             <th>
-                @Html.DisplayNameFor(model => model.IsActive)
+                @Html.DisplayName("İşlemler")
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExamName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfQuestions)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuccessGrade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ExamId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ExamId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ExamId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExamName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfQuestions)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SuccessGrade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ExamId }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ExamId }, new { @class = "btn btn-dark" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ExamId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

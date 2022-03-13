@@ -1,6 +1,7 @@
 ﻿using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,15 @@ namespace DataAccess.Concrete
 {
     public class ExamRepository: EntityRepositoryBase<Exam, ExamDbContext>, IExamRepository
     {
+        public List<Exam> GetByCategories()
+        {
+            using (ExamDbContext context = new ExamDbContext())
+            {
+                var result = context.Exams.Include(u => u.Category);
+                return result.ToList();
+            }
+        }
+
+
     }
 }

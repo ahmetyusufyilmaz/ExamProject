@@ -5,38 +5,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h3 style="margin-left:5px">Konular</h3>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<div>
+    @Html.ActionLink("Yeni Konu Oluştur", "Create", new { }, new { @class = "btn btn-success" })
+</div>
+<table class="table table-hover table-bordered">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SubCategoryName)
+                @Html.DisplayName("Konu Adı")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                @Html.DisplayName("Ders")
+            </th>
+            <th>
+                @Html.DisplayName("İşlemler")
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubCategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.SubCategoryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SubCategoryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SubCategoryId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubCategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.SubCategoryId }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Detaylar", "Details", new { id = item.SubCategoryId }, new { @class = "btn btn-dark" }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.SubCategoryId }, new { @class = "btn btn-danger" })
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

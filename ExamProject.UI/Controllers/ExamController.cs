@@ -22,7 +22,7 @@ namespace ExamProject.UI.Controllers
 
         public IActionResult Index()
         {
-            return View(_examService.GetAll());
+            return View(_examService.GetByCategories());
         }
 
     

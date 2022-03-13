@@ -39,6 +39,11 @@ namespace Business.Concrete
             return _examRepository.GetAll(c => c.CategoryId == id).ToList();
         }
 
+        public List<Exam> GetByCategories()
+        {
+            return _examRepository.GetByCategories();
+        }
+
         public Exam GetById(int examId)
         {
             return _examRepository.Get(c => c.ExamId == examId);

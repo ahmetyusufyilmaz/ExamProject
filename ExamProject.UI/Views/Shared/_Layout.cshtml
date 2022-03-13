@@ -8,41 +8,109 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ExamProject.UI</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    <main class="container-fluid bg-light p-0">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-danger border-bottom box-shadow mb-3">
+            <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/38/000000/external-exam-back-to-school-justicon-lineal-color-justicon.png" />
+            <a class="navbar-brand" style="color:white;font-family:'Arial Rounded MT';margin-left:8px"  href="/Home/Index"><b> Online Sınav </b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        
+                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " href="/Home/Index"><b>Anasayfa</b></a>
+                    </li>
+
+                    <li class="nav-item">
+                        
+                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " href="/Category/Index"><b>Dersler</b></a>
+                    </li>
+                    <li class="nav-item">
+                      
+                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " href="/SubCategory/Index"><b>Konular</b></a>
+                    </li>
+                    <li class="nav-item">
+                     
+                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " href="/Exam/Index"><b>Sınavlar</b></a>
+                    </li>
+                    <li class="nav-item">
+                     
+                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " href="/Question/Index"><b>Sorular</b></a>
+                    </li>
+                </ul>
+               
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+        @RenderBody()
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @*<header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ExamProject.UI</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Dersler</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SubCategory" asp-action="Index">Konular</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Exam" asp-action="Index">Sınavlar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Question" asp-action="Index">Sorular</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
         <div class="container">
-            &copy; 2022 - ExamProject.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <main role="main" class="pb-2">
+                @RenderBody()
+            </main>*@
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2022 - ExamProject.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
