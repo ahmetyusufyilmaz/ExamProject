@@ -10,9 +10,9 @@
 <div>
     @Html.ActionLink("Yeni Soru Oluştur", "Create", new { }, new { @class = "btn btn-success" })
 </div>
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered table-striped">
     <thead>
-        <tr>
+        <tr class="table-success" style="font-family:'Arial'">
             <th>
                 @Html.DisplayName("Soru")
             </th>
@@ -77,9 +77,9 @@
                     @Html.DisplayFor(modelItem => item.QuestionType)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.QuestionId }, new { @class = "btn btn-warning" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.QuestionId }, new { @class = "btn btn-dark" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.QuestionId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.QuestionId }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Detaylar", "Details", new { id = item.QuestionId }, new { @class = "btn btn-dark" }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.QuestionId }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
