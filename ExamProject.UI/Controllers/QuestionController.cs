@@ -20,7 +20,8 @@ namespace ExamProject.UI.Controllers
 
         public IActionResult Index()
         {
-            return View(_questionService.GetAll());
+          var result= _questionService.GetAllQuestionWithQuestionAnswers();
+            return View(result);
         }
 
 

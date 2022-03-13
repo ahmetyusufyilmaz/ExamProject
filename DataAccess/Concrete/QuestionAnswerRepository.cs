@@ -11,5 +11,9 @@ namespace DataAccess.Concrete
 {
     public class QuestionAnswerRepository : EntityRepositoryBase<QuestionAnswer, ExamDbContext>, IQuestionAnswerRepository
     {
+       
+
+
+
     }
 }

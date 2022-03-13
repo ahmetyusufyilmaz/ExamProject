@@ -10,6 +10,7 @@ namespace Business.Abstract
     public interface IQuestionService
     {
         List<Question> GetAll();
+        List<Question> GetAllQuestionWithQuestionAnswers();
         Question GetById(int questionId);
         void Add(Question question);
 

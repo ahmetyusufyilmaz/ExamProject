@@ -12,6 +12,8 @@ namespace Entities.Concrete
         public int QuestionAnswerId { get; set; }
         public int QuestionId { get; set; }
         public Question Question { get; set; }
+        public int ExamId { get; set; }
+
 
         public string Option1 { get; set; }
         public string Option2 { get; set; }

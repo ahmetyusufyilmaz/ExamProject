@@ -32,7 +32,13 @@ namespace Business.Concrete
 
         public List<Question> GetAll()
         {
-           return _questionRepository.GetAll();
+          var result=  _questionRepository.GetAll();
+            return result;
+        }
+
+        public List<Question> GetAllQuestionWithQuestionAnswers()
+        {
+            return _questionRepository.GetAllQuestionWithQuestionAnswers();
         }
 
         public Question GetById(int questionId)
