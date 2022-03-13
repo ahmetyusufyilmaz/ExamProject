@@ -2,6 +2,7 @@ using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -40,6 +41,8 @@ namespace ExamProject.UI
             services.AddScoped<IQuestionService, QuestionManager>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
 
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x => { x.LoginPath = "(Admin/Login"; });
 
             services.AddControllersWithViews().
                 AddRazorRuntimeCompilation();

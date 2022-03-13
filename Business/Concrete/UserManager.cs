@@ -30,6 +30,12 @@ namespace Business.Concrete
             _userRepository.Delete(user);
         }
 
+        public User Get()
+        {
+            throw new NotImplementedException();
+        }
+
+       
         public List<User> GetAll()
         {
             return _userRepository.GetAll();

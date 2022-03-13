@@ -30,6 +30,8 @@ namespace ExamProject.UI.Controllers
             return View(_examService.GetQuestionsByExam(id));
         }
 
+       
+
 
         public ActionResult Details(int id)
         {

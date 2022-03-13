@@ -14,6 +14,8 @@ namespace Business.Abstract
         User GetById(int userId);
         List<User> GetByAllExam();
 
+        User Get();
+
         void Add(User user);
 
         void Update(User user, int userId);
