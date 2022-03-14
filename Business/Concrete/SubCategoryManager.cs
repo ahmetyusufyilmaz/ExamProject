@@ -40,6 +40,11 @@ namespace Business.Concrete
             return _subCategoryRepository.Get(c => c.SubCategoryId == subCategoryId);
         }
 
+        public List<Question> GetQuestionsBySubCategory(int subCategoryId)
+        {
+            return _subCategoryRepository.GetQuestionsBySubCategory(subCategoryId);
+        }
+
         public void Update(SubCategory subCategory, int subCategoryId)
         {
             _subCategoryRepository.Update(subCategory);

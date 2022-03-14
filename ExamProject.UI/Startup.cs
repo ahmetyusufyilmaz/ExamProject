@@ -40,6 +40,8 @@ namespace ExamProject.UI
             services.AddScoped<IExamRepository, ExamRepository>();
             services.AddScoped<IQuestionService, QuestionManager>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IUserService, UserManager>();
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x => { x.LoginPath = "(Admin/Login"; });

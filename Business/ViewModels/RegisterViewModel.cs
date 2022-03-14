@@ -14,6 +14,14 @@ namespace Business.ViewModels
             Required(ErrorMessage = "{0} field cannot be left blank!"),
             StringLength(25, ErrorMessage = "{0} must be {1} characters.")]
         public string Username { get; set; }
+
+
+        [DisplayName("UserSurname"),
+           Required(ErrorMessage = "{0} field cannot be left blank!"),
+           StringLength(25, ErrorMessage = "{0} must be {1} characters.")]
+        public string UserSurname { get; set; }
+
+
         [DisplayName("Email"),
             Required(ErrorMessage = "{0} field cannot be left blank!"), //boş bırakılamaz
             StringLength(70, ErrorMessage = "{0} must be {1} characters."),// max karakter {1} olmalı

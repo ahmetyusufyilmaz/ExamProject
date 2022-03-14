@@ -12,6 +12,7 @@ namespace Business.Abstract
             
         List<SubCategory> GetByCategories();
         SubCategory GetById(int subCategoryId);
+        List<Question> GetQuestionsBySubCategory(int subCategoryId);
         void Add(SubCategory subCategory);
 
         void Update(SubCategory subCategory, int subCategoryId);

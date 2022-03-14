@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Business.ViewModels;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,9 @@ namespace Business.Abstract
         User GetById(int userId);
         List<User> GetByAllExam();
 
-        User Get();
+        bool Login(LoginViewModel model);
+
+        bool Register(RegisterViewModel rmodel);
 
         void Add(User user);
 

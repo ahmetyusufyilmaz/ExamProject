@@ -30,7 +30,8 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SubCategoryName)
+                    <a href="GetQuestionsBySubCategory/@item.SubCategoryId">    @Html.DisplayFor(modelItem => item.SubCategoryName)</a>
+                  
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.CategoryName)

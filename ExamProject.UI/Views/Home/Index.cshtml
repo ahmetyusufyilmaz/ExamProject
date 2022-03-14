@@ -1,12 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
 }
 
-<div class="text-center">
-    <h1 class="display-4">Hoş Geldiniz</h1>
-    
-</div>
+<div class="container" style="margin-top:6%;">
+    <div class="row">
+        <div class="col-5">
+            <h3 class="display-3" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                E-Sınav <br> Sistemine Hoşgeldiniz.
+            </h3>
+            <br />
+            <p style="font-family:Arial">
+                Sınavlarınıza ulaşmak için üye girişi yapın.
+                <a href="/Home/Login" class="text-danger"><br /> <u>Üye girişi</u></a>
+            </p>
 
-<div id="homePhoto">
-    <img src="http://gencegitim.com.tr/wp-content/uploads/2020/04/s1.jpg"  style="margin-left:30%" />
+        </div>
+
+        <div class="col-7">
+            <img src="https://picsum.photos/id/4/300/300" alt="" class=" float-right">
+        </div>
+    </div>
 </div>

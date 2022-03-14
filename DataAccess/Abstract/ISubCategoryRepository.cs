@@ -11,5 +11,6 @@ namespace DataAccess.Abstract
     public interface ISubCategoryRepository : IEntityRepository<SubCategory>
     {
         List<SubCategory> GetByCategories();
+        List<Question> GetQuestionsBySubCategory(int subCategoryId);
     }
 }

@@ -11,7 +11,7 @@
     <main class="container-fluid bg-light p-0">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/38/000000/external-exam-back-to-school-justicon-lineal-color-justicon.png" />
-            <a class="navbar-brand" style="color:white;font-family:'Arial Rounded MT';margin-left:8px"  href="/Home/Index"><b> Online Sınav </b></a>
+            <a class="navbar-brand" style="color:white;font-family:'Arial Rounded MT';margin-left:8px"  href="/Home/Index"><b> E-Sınav </b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,25 +19,33 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        
+
                         <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " href="/Home/Index"><b>Anasayfa</b></a>
                     </li>
 
                     <li class="nav-item">
-                        
+
                         <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " href="/Category/Index"><b>Dersler</b></a>
                     </li>
                     <li class="nav-item">
-                      
-                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " href="/SubCategory/Index"><b>Konular</b></a>
+
+                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px;  " href="/SubCategory/Index"><b>Konular</b></a>
                     </li>
                     <li class="nav-item">
-                     
+
                         <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " href="/Exam/Index"><b>Sınavlar</b></a>
                     </li>
                     <li class="nav-item">
-                     
+
                         <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " href="/Question/Index"><b>Sorular</b></a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px; " asp-action="Login" asp-controller="Home"><b>Login</b></a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; border: 1px solid black; margin-left: 8px;  "  asp-action="Register" asp-controller="Home"><b>Sign Up</b></a>
                     </li>
                 </ul>
                

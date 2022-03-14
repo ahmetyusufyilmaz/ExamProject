@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Entities.Concrete.Question>
+
+@{
+    ViewData["Title"] = "Konuya göre Sorular";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Konuya Göre Soru Listesi</h3>
+
+<p>
+    @Html.ActionLink("Yeni Konu Oluştur", "Create", new { }, new { @class = "btn btn-success" })
+    <table class="table table-hover table-bordered table-striped ">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Soru Metini")
+                </th>
+                <th>
+                    @Html.DisplayName("Doğru Cevap")
+                </th>
+                <th>
+                    @Html.DisplayName("Sınav Adı")
+                </th>
+                <th>
+                    @Html.DisplayName("Konu")
+                </th>
+                <th>
+                    @Html.DisplayName("Soru Tipi")
+                </th>
+                <th>
+                    @Html.DisplayName("İşlemler")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuestionText)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CorrectAnswer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Exam.ExamName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubCategory.SubCategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuestionType)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.QuestionId }, new { @class = "btn btn-warning" }) |
+                        @Html.ActionLink("Detaylar", "Details", new { id = item.QuestionId }, new { @class = "btn btn-dark" }) |
+                        @Html.ActionLink("Sil", "Delete", new { id = item.QuestionId }, new { @class = "btn btn-danger" })
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

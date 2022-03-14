@@ -25,12 +25,20 @@ namespace ExamProject.UI.Controllers
             return View(_subCategoryService.GetByCategories());
         }
 
+
+        public IActionResult GetQuestionsBySubCategory(int id)
+        {
+            return View(_subCategoryService.GetQuestionsBySubCategory(id));
+        }
+
         // GET: SubCategoryController/Details/5
         public ActionResult Details(int id)
         {
             SubCategory subCategory = _subCategoryService.GetByCategories().SingleOrDefault(x=>x.SubCategoryId==id);
 
             return View(subCategory);
+
+
         }
 
         // GET: SubCategoryController/Create

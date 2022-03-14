@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.ViewModels;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -30,10 +31,7 @@ namespace Business.Concrete
             _userRepository.Delete(user);
         }
 
-        public User Get()
-        {
-            throw new NotImplementedException();
-        }
+      
 
        
         public List<User> GetAll()
@@ -49,6 +47,41 @@ namespace Business.Concrete
         public User GetById(int userId)
         {
             return _userRepository.Get(c => c.UserId == userId);
+        }
+
+
+        public bool Login(LoginViewModel model)
+        {
+
+            var user = _userRepository.Get(u => u.UserMail == model.Email);
+            if (user is null || user.Password!=model.Password )
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool Register(RegisterViewModel rmodel)
+        {
+            var user = _userRepository.Get(u => u.UserMail == rmodel.Email);
+
+            if (user is not null)
+            {
+                return false;
+            }
+
+            User newUser = new User
+            {
+                UserMail=rmodel.Email,
+                UserName=rmodel.Username,
+                Password=rmodel.Password,
+                UserSurname=rmodel.UserSurname
+            };
+
+            _userRepository.Add(newUser);
+
+            return true;
+
         }
 
         public void Update(User user, int userId)

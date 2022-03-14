@@ -16,12 +16,12 @@ namespace ExamProject.UI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       
         private readonly IUserService _userService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUserService userService)
         {
-            _logger = logger;
+            _userService = userService;
         }
 
         public IActionResult Index()
@@ -29,29 +29,48 @@ namespace ExamProject.UI.Controllers
             return View();
         }
 
-        //[Route("/[controller]s/Login")]
-        //[HttpPost]
+        [HttpPost]
 
-        //public async Task<IActionResult> Login(LoginViewModel loginViewModel)
-        //{
-        //    var loggedValue = _userService.Get(u => u.Email == loginViewModel.Email && u.Password == loginViewModel.Password);
-        //    if(loggedValue is not null)
-        //    {
-        //        var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.Email,loginViewModel.Email)
-        //        };
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
+        {
+            if(ModelState.IsValid)
+            {
+                var loggedValue = _userService.Login(loginViewModel);
+                if (!loggedValue)
+                {
+                    var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Email,loginViewModel.Email)
+                };
 
-        //        var userIdentity = new ClaimsIdentity(claims, "Login");
-        //        ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-        //        await HttpContext.SignInAsync(principal);
-        //        return Redirect("http://localhost:11567/admin/panel");
-        //    }
-        //    return View();
-        //}
+                    var userIdentity = new ClaimsIdentity(claims, "Login");
+                    ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                    await HttpContext.SignInAsync(principal);
+                    return Redirect("Home");
+                }
+            }
+            return View();
+        }
+        
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+        {
+            var loggedValue = _userService.Register(registerViewModel);
+            if (loggedValue)
+            {
+                return Redirect("Login");
+            }
+            return View("Register");
+        }
 
         [HttpGet]
-        [Route("/[controller]s/Logout")]
         public async Task<IActionResult>Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
