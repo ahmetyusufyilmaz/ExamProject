@@ -5,11 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3 style="margin-left:5px">Sorular</h3>
-<h2></h2>
-<div>
-    @Html.ActionLink("Yeni Soru Oluştur", "Create", new { }, new { @class = "btn btn-success" })
-</div>
+<h3 style="margin-left:5px">
+    Sorular
+    <span class="ml-3">
+
+        @Html.ActionLink("Yeni Soru Oluştur", "Create", new { }, new { @class = "btn btn-outline-success" })
+    </span>
+</h3>
+
 <table class="table table-hover table-bordered table-striped">
     <thead>
         <tr class="table-success" style="font-family:'Arial'">
@@ -71,19 +74,21 @@
                     @Html.DisplayFor(modelItem => item.CorrectAnswer)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Exam.ExamName)
+                    @*@Html.DisplayFor(modelItem => item.Exam.ExamName)*@
+                    <a href="GetQuestionsByExam/@item.ExamId">    @Html.DisplayFor(modelItem => item.Exam.ExamName)</a>
                 </td>
                 <td>
-                   >@Html.DisplayFor(modelItem => item.SubCategory.SubCategoryName)
+                    @*@Html.DisplayFor(modelItem => item.SubCategory.SubCategoryName)*@
+                    <a href="GetQuestionsBySubCategory/@item.SubCategoryId">    @Html.DisplayFor(modelItem => item.SubCategory.SubCategoryName)</a>
 
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.QuestionType)
                 </td>
                 <td>
-                    @Html.ActionLink("Düzenle", "Edit", new { id = item.QuestionId }, new { @class = "btn btn-warning" }) |
-                    @Html.ActionLink("Detaylar", "Details", new { id = item.QuestionId }, new { @class = "btn btn-dark" }) |
-                    @Html.ActionLink("Sil", "Delete", new { id = item.QuestionId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.QuestionId }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Detaylar", "Details", new { id = item.QuestionId }, new { @class = "btn btn-dark btn-sm" }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.QuestionId }, new { @class = "btn btn-danger btn-sm" })
                 </td>
             </tr>
         }

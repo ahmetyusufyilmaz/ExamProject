@@ -5,11 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3 style="margin-left:5px">Sınav Listesi</h3>
+<h3 style="margin-left:5px">
+    Sınav Listesi
 
-<div>
-    @Html.ActionLink("Yeni Sınav Oluştur", "Create", new { }, new { @class = "btn btn-success" })
-</div>
+    <span class="ml-3">
+        @Html.ActionLink("Yeni Sınav Oluştur", "Create", new { }, new { @class = "btn btn-outline-success" })
+    </span>
+</h3>
 <table class="table table-hover table-bordered table-striped">
     <thead>
         <tr class="table-success" style="font-family:'Arial'">

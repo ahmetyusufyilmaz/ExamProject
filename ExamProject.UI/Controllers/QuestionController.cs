@@ -24,6 +24,16 @@ namespace ExamProject.UI.Controllers
             return View(result);
         }
 
+        public IActionResult GetQuestionsBySubCategory(int id)
+        {
+            return View(_questionService.GetQuestionsBySubCategory(id));
+        }
+        public IActionResult GetQuestionsByExam(int id)
+        {
+            return View(_questionService.GetQuestionsByExam(id));
+        }
+
+
 
         public ActionResult Details(int id)
         {

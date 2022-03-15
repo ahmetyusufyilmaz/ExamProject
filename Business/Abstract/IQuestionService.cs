@@ -11,6 +11,8 @@ namespace Business.Abstract
     {
         List<Question> GetAll();
         List<Question> GetAllQuestionWithQuestionAnswers();
+        List<Question> GetQuestionsBySubCategory(int subCategoryId);
+        List<Question> GetQuestionsByExam(int examId);
         Question GetById(int questionId);
         void Add(Question question);
 

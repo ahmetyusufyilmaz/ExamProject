@@ -11,5 +11,7 @@ namespace DataAccess.Abstract
     public interface IQuestionRepository : IEntityRepository<Question>
     {
         List<Question> GetAllQuestionWithQuestionAnswers();
+        List<Question> GetQuestionsBySubCategory(int subCategoryId);
+        List<Question> GetQuestionsByExam(int examId);
     }
 }

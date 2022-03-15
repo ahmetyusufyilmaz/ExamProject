@@ -50,19 +50,26 @@
                 <input asp-for="CorrectAnswer" class="form-control" />
                 <span asp-validation-for="CorrectAnswer" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="ExamId" class="control-label"><b>Sınav ID</b></label>
-                <select asp-for="ExamId" class="form-control" asp-items="ViewBag.ExamId"></select>
+                <input asp-for="ExamId" class="form-control" />
+                <span asp-validation-for="ExamId" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="SubCategoryId" class="control-label"><b>Konu ID</b></label>
-                <select asp-for="SubCategoryId" class="form-control" asp-items="ViewBag.SubCategoryId"></select>
+                <input asp-for="SubCategoryId" class="form-control" />
+                <span asp-validation-for="SubCategoryId" class="text-danger"></span>
             </div>
+
+          
             <div class="form-group">
                 <label asp-for="QuestionType" class="control-label"><b>Soru Tipi</b></label>
-                <select asp-for="QuestionType" class="form-control"></select>
+                <input asp-for="QuestionType" class="form-control" />
                 <span asp-validation-for="QuestionType" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Oluştur" class="btn btn-success" />
             </div>

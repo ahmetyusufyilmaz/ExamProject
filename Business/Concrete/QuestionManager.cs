@@ -46,6 +46,18 @@ namespace Business.Concrete
             return _questionRepository.Get(c => c.QuestionId == questionId);
         }
 
+        public List<Question> GetQuestionsByExam(int examId)
+        {
+           
+                return _questionRepository.GetQuestionsByExam(examId);
+            
+        }
+
+        public List<Question> GetQuestionsBySubCategory(int subCategoryId)
+        {
+            return _questionRepository.GetQuestionsBySubCategory(subCategoryId);
+        }
+
         public void Update(Question question, int questionId)
         {
             _questionRepository.Update(question);
