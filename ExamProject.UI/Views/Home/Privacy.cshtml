@@ -1,6 +1,82 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
+﻿@model IEnumerable<Entities.Concrete.Question>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container" style="margin-top:6%;">
+   
+    <div style='transform: scale(0.65); position: relative; top: -100px;'>
+        <h3>WRITE YOUR QUESTION HERE</h3>
+        <p>Choose 1 answer</p>
+        <hr />
+
+        <div id='block-11' style='padding: 10px;'>
+            <label for='option-11' style=' padding: 5px; font-size: 2.5rem;'>
+                <input type='radio' name='option' value='6/24' id='option-11' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+
+                A)
+            </label>
+            <span id='result-11'></span>
+        </div>
+        <hr />
+
+        <div id='block-12' style='padding: 10px;'>
+            <label for='option-12' style=' padding: 5px; font-size: 2.5rem;'>
+                <input type='radio' name='option' value='6' id='option-12' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                B)
+            </label>
+            <span id='result-12'></span>
+        </div>
+        <hr />
+
+        <div id='block-12' style='padding: 10px;'>
+            <label for='option-12' style=' padding: 5px; font-size: 2.5rem;'>
+                <input type='radio' name='option' value='6' id='option-12' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                C)
+            </label>
+            <span id='result-12'></span>
+        </div>
+        <hr />
+
+
+        <div id='block-12' style='padding: 10px;'>
+            <label for='option-12' style=' padding: 5px; font-size: 2.5rem;'>
+                <input type='radio' name='option' value='6' id='option-12' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+                D)
+            </label>
+            <span id='result-12'></span>
+        </div>
+        <hr />
+        <div class="" style="float:right;">
+            <button class="btn-lg btn-primary"> <a asp-action="Index" style="color:white"><b>Önceki soru</b></a></button>
+            <button class="btn-lg btn-primary"><a asp-action="Index" style="margin-left:10px;color:white"><b>Sıradaki soru</b></a></button>
+        </div>
+
+        <script>
+
+            function displayAnswer1() {
+                if (document.getElementById('option-11').checked) {
+                    document.getElementById('block-11').style.border = '3px solid limegreen'
+                    document.getElementById('result-11').style.color = 'limegreen'
+                    document.getElementById('result-11').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-12').checked) {
+                    document.getElementById('block-12').style.border = '3px solid red'
+                    document.getElementById('result-12').style.color = 'red'
+                    document.getElementById('result-12').innerHTML = 'Incorrect!'
+                    showCorrectAnswer1()
+                }
+                if (document.getElementById('option-13').checked) {
+                    document.getElementById('block-13').style.border = '3px solid red'
+                    document.getElementById('result-13').style.color = 'red'
+                    document.getElementById('result-13').innerHTML = 'Incorrect!'
+                    showCorrectAnswer1()
+                }
+                if (document.getElementById('option-14').checked) {
+                    document.getElementById('block-14').style.border = '3px solid red'
+                    document.getElementById('result-14').style.color = 'red'
+                    document.getElementById('result-14').innerHTML = 'Incorrect!'
+                    showCorrectAnswer1()
+                }
+            }
+
+        </script>
+    </div>
+    </div>

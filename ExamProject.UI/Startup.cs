@@ -29,6 +29,11 @@ namespace ExamProject.UI
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddControllersWithViews().
+               AddRazorRuntimeCompilation();
+
+
+
             string connectionString = Configuration.GetConnectionString("Context");
             services.AddDbContext<ExamDbContext>();
 
@@ -44,10 +49,15 @@ namespace ExamProject.UI
             services.AddScoped<IUserService, UserManager>();
 
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x => { x.LoginPath = "(Admin/Login"; });
 
-            services.AddControllersWithViews().
-                AddRazorRuntimeCompilation();
+           
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x => { x.LoginPath = "/Home/Login"; });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +74,8 @@ namespace ExamProject.UI
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

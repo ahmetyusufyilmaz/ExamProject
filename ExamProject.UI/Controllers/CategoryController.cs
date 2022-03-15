@@ -2,6 +2,7 @@
 using DataAccess.Concrete;
 using Entities.Concrete;
 using ExamProject.UI.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace ExamProject.UI.Controllers
 {
+    
     public class CategoryController : Controller
     {
 
@@ -23,12 +25,12 @@ namespace ExamProject.UI.Controllers
             _categoryService = categoryService;
             _subCategoryService = subCategoryService;
         }
-
+       
         public IActionResult Index()
         {
             return View(_categoryService.GetAll());
         }
-
+        [Authorize(Policy = "AdminOnly")]
         public ActionResult Details(int id)
         {
             CategoriesViewModel model = new CategoriesViewModel();
@@ -36,7 +38,7 @@ namespace ExamProject.UI.Controllers
             model.SubCategory = _subCategoryService.GetByCategories().Where(x=>x.CategoryId==id).ToList();
             return View(model);
         }
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -54,7 +56,7 @@ namespace ExamProject.UI.Controllers
 
             return View(category);
         }
-
+        [Authorize(Roles="Admin")]
         public ActionResult Edit(int id, int _) 
         {
             var result = _categoryService.GetAll().SingleOrDefault(q => q.CategoryId == id);
@@ -71,7 +73,7 @@ namespace ExamProject.UI.Controllers
 
 
         }
-
+        [Authorize]
         public ActionResult Delete(int id, int _)
         {
             var result = _categoryService.GetAll().SingleOrDefault(q => q.CategoryId == id);

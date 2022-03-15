@@ -1,5 +1,118 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Business.ViewModels.RegisterViewModel
+
 @{
+    ViewData["Title"] = "Register";
+
 }
+
+
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
+                     alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+                <form method="post">
+                    <div asp-validation-summary="All" class="text-primary" style="font-size:larger"><b>Yeni Kayıt</b></div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Username"><b>Ad</b></label>
+                        <input asp-for="Username" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="UserSurname"><b>Soyad</b></label>
+                        <input asp-for="UserSurname" class="form-control" />
+                        <span asp-validation-for="UserSurname" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label asp-for="Email"><b>E-Mail</b></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password"><b>Parola</b></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="RePassword"><b>Parola Tekrar</b></label>
+                        <input asp-for="RePassword" class="form-control" />
+                        <span asp-validation-for="RePassword" class="text-danger"></span>
+                    </div>
+                    <button  type="submit" style="margin-bottom:10px;" class="btn-outline-primary btn-lg">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+        <!-- Copyright -->
+        <div class="text-white mb-3 mb-md-0">
+            Copyright © 2022. All rights reserved.
+        </div>
+       
+    </div>
+</section>
+
+
+
+
+
+
+
+<h1>Register</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="UserSurname"></label>
+                <input asp-for="UserSurname" class="form-control" />
+                <span asp-validation-for="UserSurname" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RePassword"></label>
+                <input asp-for="RePassword" class="form-control" />
+                <span asp-validation-for="RePassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn-primary">Register</button>
+        </form>
+
+    </div>
+</div>

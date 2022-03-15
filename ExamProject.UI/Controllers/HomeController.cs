@@ -16,6 +16,7 @@ namespace ExamProject.UI.Controllers
 {
     public class HomeController : Controller
     {
+
        
         private readonly IUserService _userService;
 
@@ -40,7 +41,10 @@ namespace ExamProject.UI.Controllers
                 {
                     var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Email,loginViewModel.Email)
+                    new Claim(ClaimTypes.Email,loginViewModel.Email),
+                    new Claim(ClaimTypes.Name,"Admin"),
+                    new Claim(ClaimTypes.Role,"Admin"),
+
                 };
 
                     var userIdentity = new ClaimsIdentity(claims, "Login");
@@ -57,6 +61,14 @@ namespace ExamProject.UI.Controllers
         {
             return View();
         }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+
+
 
         [HttpPost]
 
