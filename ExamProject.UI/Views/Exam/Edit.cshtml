@@ -7,10 +7,10 @@
 
 
 
-<h4>Sınavı Düzenle</h4>
+<h4 class="ml-2">Sınavı Düzenle</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 ml-2">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ExamId" />
@@ -63,14 +63,14 @@
 
 
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-outline-success" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="ml-1">
+    <a asp-action="Index">Listeye dön</a>
 </div>
 
 @section Scripts {

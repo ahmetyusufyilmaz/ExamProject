@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
+<div class="ml-2">
     <h4>Soru Detayları</h4>
     <hr />
     <dl class="row">
@@ -79,7 +79,7 @@
 
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.QuestionId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="ml-1">
+    <button class="btn btn-outline-warning"> <a asp-action="Edit" asp-route-id="@Model.QuestionId">Düzenle</a></button>
+    <button class="btn btn-outline-secondary"> <a asp-action="Index">Listeye Dön</a></button>
 </div>

@@ -24,7 +24,9 @@ namespace Entities.Concrete
     public Exam Exam { get; set; }
     public int SubCategoryId { get; set; }
     public virtual SubCategory SubCategory { get; set; }
-    public QuestionType QuestionType { get; set; }
+        public int CategoryId { get; set; }
+        public virtual Category category { get; set; }
+        public QuestionType QuestionType { get; set; }
     [Required]
     public QuestionAnswer QuestionAnswer { get; set; }
 }

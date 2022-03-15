@@ -8,9 +8,9 @@
 
 
 <div>
-    <h4>Sınav Detayları</h4>
+    <h4 class="ml-2">Sınav Detayları</h4>
     <hr />
-    <dl class="row">
+    <dl class="row ml-1">
 
         <dt class="col-sm-2">
             @Html.DisplayName("Ders Adı")
@@ -70,7 +70,7 @@
 
     </dl>
 </div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ExamId }, new { @class = "btn btn-warning" }) |
-    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-warning" })
+<div class="ml-2">
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.ExamId }, new { @class = "btn btn-warning" }) |
+    <button class="btn btn-outline-dark"> @Html.ActionLink("Listeye dön", "Index")</button>
 </div>

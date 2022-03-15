@@ -6,10 +6,10 @@
 }
 
 
-<h3>Soruyu silmek istediğinize emin misiniz?</h3>
+<h3 class="ml-2">Soruyu silmek istediğinize emin misiniz?</h3>
 <div>
     <hr />
-    <dl class="row">
+    <dl class="row ml-1">
         <dt class = "col-sm-2">
             @Html.DisplayName("Soru Metni")
         </dt>
@@ -43,7 +43,7 @@
         </dd>
     </dl>
     
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="ml-3">
         <input type="hidden" asp-for="QuestionId" />
         <input type="submit" value="Sil" class="btn btn-danger" /> |
         <a asp-action="Index">Listeye dön</a>

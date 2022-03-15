@@ -7,11 +7,11 @@
 
 
 
-<h4 style="margin-left:10px">Soruyu düzenle</h4>
+<h4 class="ml-2">Soruyu düzenle</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit" style="margin-left:10px">
+    <div class="col-md-4 ml-2">
+        <form asp-action="Edit" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="QuestionId" />
             <div class="form-group">
@@ -78,7 +78,7 @@
 </div>
 
 <div>
-    <a asp-action="Index"style="margin-left:10px">Listeye Dön</a>
+    <a asp-action="Index"class="ml-2">Listeye Dön</a>
 </div>
 
 @section Scripts {
