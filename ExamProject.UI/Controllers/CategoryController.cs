@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ExamProject.UI.Controllers
 {
-    [Authorize(Roles = "Admin")]
+
     public class CategoryController : Controller
     {
 
@@ -25,12 +25,12 @@ namespace ExamProject.UI.Controllers
             _categoryService = categoryService;
             _subCategoryService = subCategoryService;
         }
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin,Member")]
         public IActionResult Index()
         {
             return View(_categoryService.GetAll());
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int id)
         {
             CategoriesViewModel model = new CategoriesViewModel();
@@ -38,12 +38,14 @@ namespace ExamProject.UI.Controllers
             model.SubCategory = _subCategoryService.GetByCategories().Where(x=>x.CategoryId==id).ToList();
             return View(model);
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Category category)
         {
@@ -56,7 +58,7 @@ namespace ExamProject.UI.Controllers
             return View(category);
         }
 
-        [Authorize(Policy ="Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id, int _) 
         {
             var result = _categoryService.GetAll().SingleOrDefault(q => q.CategoryId == id);
@@ -64,16 +66,15 @@ namespace ExamProject.UI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Category category)
         {
-
             _categoryService.Update(category, id);
             return RedirectToAction("Index");
 
-
         }
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id, int _)
         {
             var result = _categoryService.GetAll().SingleOrDefault(q => q.CategoryId == id);
@@ -81,6 +82,7 @@ namespace ExamProject.UI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {

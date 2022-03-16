@@ -32,9 +32,7 @@
             <th>
                 @Html.DisplayName("D")
             </th>
-            <th>
-                @Html.DisplayName("Doğru Cevap")
-            </th>
+          
             <th>
                 @Html.DisplayName("Sınav Adı")
             </th>
@@ -70,9 +68,7 @@
                 <td>
                     @item.QuestionAnswer.Option4
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CorrectAnswer)
-                </td>
+                
                 <td>
                     @*@Html.DisplayFor(modelItem => item.Exam.ExamName)*@
                     <a href="GetQuestionsByExam/@item.ExamId">    @Html.DisplayFor(modelItem => item.Exam.ExamName)</a>

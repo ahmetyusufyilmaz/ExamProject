@@ -45,7 +45,7 @@ namespace ExamProject.UI.Controllers
             {
                 var claims = new List<Claim>();
                 claims.Add(new Claim(ClaimTypes.NameIdentifier, model.Email));
-                if(model.Email == _configuration["AdminEmail Adresi gelecek"])
+                if(model.Email == _configuration["Admin:Email"])
                 {
                     claims.Add(new Claim(ClaimTypes.Role, "Admin"));
                 }
@@ -59,8 +59,8 @@ namespace ExamProject.UI.Controllers
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
                 await HttpContext.SignInAsync(claimsPrincipal);
-
-                return Redirect("Privacy");
+                
+                return Redirect("Index");
             }
             TempData["Error"] = "Error. Username or Password is invalid";
             return View("login");
@@ -73,37 +73,6 @@ namespace ExamProject.UI.Controllers
             return Redirect("/");
         }
 
-        //[HttpPost]
-
-        //public async Task<IActionResult> Login(LoginViewModel loginViewModel)
-        //{
-        //    if(ModelState.IsValid)
-        //    {
-        //        var loggedValue = _userService.Login(loginViewModel);
-        //        if (!loggedValue)
-        //        {
-        //            var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.Email,loginViewModel.Email),
-        //            new Claim(ClaimTypes.Name,"Admin"),
-        //            new Claim(ClaimTypes.Role,"Admin"),
-
-        //        };
-
-        //            var userIdentity = new ClaimsIdentity(claims, "Login");
-        //            ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-        //            await HttpContext.SignInAsync(principal);
-        //            return Redirect("Home");
-        //        }
-        //    }
-        //    return View();
-        //}
-
-        //[HttpGet]
-        //public IActionResult Login()
-        //{
-        //    return View();
-        //}
 
         public IActionResult Register()
         {
@@ -115,7 +84,7 @@ namespace ExamProject.UI.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+        public IActionResult Register(RegisterViewModel registerViewModel)
         {
             var loggedValue = _userService.Register(registerViewModel);
             if (loggedValue)

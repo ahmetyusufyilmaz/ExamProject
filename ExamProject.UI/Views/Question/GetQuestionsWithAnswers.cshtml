@@ -1,0 +1,122 @@
+﻿@model Entities.Concrete.Question
+
+<html>
+
+<head>
+    <link href="~/css/style.css?themeRevisionID=5f30e2a790832f3e96009402" rel="stylesheet" />
+</head>
+
+<body>
+    <form class="jotform-form" action="/index2.html">
+        <div class="form-all">
+            <!-- Soru1  start-->
+            <ul class="form-section page-section">
+                <li class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-large">
+                        <div>
+                            <h1 class="form-header" data-component="header">
+                                Soru 1
+                            </h1>
+                            <div>
+                                Sorular Tek seçim olacaktır
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="form-line" data-type="control_radio" id="id_3">
+
+
+                    <label class="form-label form-label-top form-label-auto" id="label_3" for="input_3"> @Model.QuestionText </label>
+                    <div id="cid_3" class="form-input-wide" data-layout="full">
+                        <div class="form-single-column" role="group" aria-labelledby="label_3" data-component="radio">
+                            <span class="form-radio-item" style="clear:left">
+                                <span>
+                                </span>
+                                <input type="radio" aria-describedby="label_3" class="form-radio" id="input_3_0" name="answer" value="" @Model.QuestionAnswer.Option1 "   />
+                                <label id="label_input_3_0" for="input_3_0">@Model.QuestionAnswer.Option1</label>
+                            </span>
+                            <span class="form-radio-item" style="clear:left">
+                                <span class="dragger-item">
+                                </span>
+                                <input type="radio" aria-describedby="label_3" class="form-radio" id="input_3_1" name="answer" value="@Model.QuestionAnswer.Option2" />
+                                <label id="label_input_3_1" for="input_3_1">@Model.QuestionAnswer.Option2</label>
+                            </span>
+                            <span class="form-radio-item" style="clear:left">
+                                <span class="dragger-item">
+                                </span>
+                                <input type="radio" aria-describedby="label_3" class="form-radio" id="input_3_2" name="answer" value="@Model.QuestionAnswer.Option3" />
+                                <label id="label_input_3_2" for="input_3_2">@Model.QuestionAnswer.Option3</label>
+                            </span>
+                            <span class="form-radio-item" style="clear:left">
+                                <span class="dragger-item">
+                                </span>
+                                <input type="radio" aria-describedby="label_3" class="form-radio" id="input_3_3" name="answer" value="@Model.QuestionAnswer.Option4" />
+                                <label id="label_input_3_3" for="input_3_3">@Model.QuestionAnswer.Option4</label>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="cid_8" class="form-input-wide" data-type="control_pagebreak">
+                    <div class="form-pagebreak" data-component="pagebreak">
+                        <div class="form-pagebreak-back-container">
+                            <button id="form-pagebreak-back_8" type="submit" class="form-pagebreak-back  jf-form-buttons" data-component="pagebreak-back"
+                                    asp-action="GetQuestionsWithOptions" asp-controller="Question">
+                                Back
+                            </button>
+                        </div>
+                        <div class="form-pagebreak-next-container">
+
+                            <button class="btn btn-outline-warning"> <a asp-action="GetQuestionsWithAnswers" asp-route-id="@Model.QuestionId">Next</a></button>
+
+                            @*<button id="form-pagebreak-next_8" type="submit" class="form-pagebreak-next jf-form-buttons"
+                                    asp-action="GetQuestionsWithAnswers" asp-route="@Model.QuestionId"
+                                    data-component="pagebreak-next">*@
+                                @*Next
+                            </button>*@
+                        </div>
+                        <div style="clear:both" class="pageInfo form-sub-label" id="pageInfo_8">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+
+            <ul class="form-section page-section" style="display:none;">
+                <li id="cid_13" class="form-input-wide" data-type="control_head">
+                    <div class="form-header-group  header-default">
+                        <div class="header-text httal htvam">
+                            <h2 id="header_13" class="form-header" data-component="header">
+                                Sınavı Bitirmek için lütfen "Gönder"e Basınız.
+                            </h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_button" id="id_2">
+
+                    <div id="cid_2" class="form-input-wide" data-layout="full">
+                        <div style="display: grid; margin:50px">
+                            <button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="" href="https://www.google.com">
+                                Gönder
+                            </button>
+                        </div>
+
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+
+
+    </form>
+
+
+</body>
+
+</html>

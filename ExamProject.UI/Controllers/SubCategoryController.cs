@@ -1,11 +1,9 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace ExamProject.UI.Controllers
 {
@@ -19,19 +17,19 @@ namespace ExamProject.UI.Controllers
             _subCategoryService = subCategoryService;
         }
 
-        // GET: SubCategoryController
+        [Authorize(Roles = "Admin,Member")]
         public ActionResult Index()
         {
             return View(_subCategoryService.GetByCategories());
         }
 
-
+        [Authorize(Roles = "Admin,Member")]
         public IActionResult GetQuestionsBySubCategory(int id)
         {
             return View(_subCategoryService.GetQuestionsBySubCategory(id));
         }
 
-        // GET: SubCategoryController/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int id)
         {
             SubCategory subCategory = _subCategoryService.GetByCategories().SingleOrDefault(x=>x.SubCategoryId==id);
@@ -41,13 +39,13 @@ namespace ExamProject.UI.Controllers
 
         }
 
-        // GET: SubCategoryController/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SubCategoryController/Create
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(SubCategory subCategory)
@@ -62,14 +60,14 @@ namespace ExamProject.UI.Controllers
             return View(subCategory);
         }
 
-        // GET: SubCategoryController/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id,int _)
         {
             var result = _subCategoryService.GetByCategories().SingleOrDefault(q => q.SubCategoryId == id);
             return View(result);
         }
 
-        // POST: SubCategoryController/Edit/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, SubCategory subCategory)
@@ -78,14 +76,14 @@ namespace ExamProject.UI.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: SubCategoryController/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var result = _subCategoryService.GetByCategories().SingleOrDefault(q => q.SubCategoryId == id);
             return View(result);
         }
 
-        // POST: SubCategoryController/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, SubCategory subCategory)
