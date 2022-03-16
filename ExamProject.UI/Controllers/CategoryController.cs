@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ExamProject.UI.Controllers
 {
-    
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
 
@@ -25,12 +25,12 @@ namespace ExamProject.UI.Controllers
             _categoryService = categoryService;
             _subCategoryService = subCategoryService;
         }
-       
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(_categoryService.GetAll());
         }
-        [Authorize(Policy = "AdminOnly")]
+
         public ActionResult Details(int id)
         {
             CategoriesViewModel model = new CategoriesViewModel();
@@ -38,7 +38,6 @@ namespace ExamProject.UI.Controllers
             model.SubCategory = _subCategoryService.GetByCategories().Where(x=>x.CategoryId==id).ToList();
             return View(model);
         }
-        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -56,7 +55,8 @@ namespace ExamProject.UI.Controllers
 
             return View(category);
         }
-        [Authorize(Roles="Admin")]
+
+        [Authorize(Policy ="Admin")]
         public ActionResult Edit(int id, int _) 
         {
             var result = _categoryService.GetAll().SingleOrDefault(q => q.CategoryId == id);

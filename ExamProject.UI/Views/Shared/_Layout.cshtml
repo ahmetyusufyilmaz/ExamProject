@@ -6,14 +6,15 @@
     <title>@ViewData["Title"] - ExamProject.UI</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    
 </head>
 <body>
     <main class="container-fluid bg-light p-0">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/38/000000/external-exam-back-to-school-justicon-lineal-color-justicon.png" />
-            
-           
-            <span class="navbar-brand" style="color:white;font-family:'Arial Rounded MT';margin-left:8px"  href="/Home/Index"><b> E-Sınav </b></span>
+
+
+            <span class="navbar-brand" style="color:white;font-family:'Arial Rounded MT';margin-left:8px" href="/Home/Index"><b> E-Sınav </b></span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,14 +44,14 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                   
-                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; margin-left: 8px; " asp-action="Login" asp-controller="Home"><b>Login</b></a>
 
-                        <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; margin-left: 8px; " asp-action="Register" asp-controller="Home"><b>Sign Up</b></a>
-                 
+                    <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; margin-left: 8px; " asp-action="Login" asp-controller="Home"><b>Login</b></a>
+
+                    <a class="btn btn-outline-light" style="font-family: 'Arial Rounded MT'; margin-left: 8px; " asp-action="Register" asp-controller="Home"><b>Sign Up</b></a>
+
                 </form>
 
-</div>
+            </div>
         </nav>
 
         @RenderBody()
@@ -75,7 +76,7 @@
 
 
 
-        @*<header>
+    @*<header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                 <div class="container">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ExamProject.UI</a>
@@ -110,16 +111,19 @@
             <main role="main" class="pb-2">
                 @RenderBody()
             </main>*@
-        </div>
+    </div>
 
-        <footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2022 - ExamProject.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-        </footer>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        @await RenderSectionAsync("Scripts", required: false)
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - ExamProject.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+
 </body>
 </html>

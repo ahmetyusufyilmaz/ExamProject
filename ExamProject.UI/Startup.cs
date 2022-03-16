@@ -45,19 +45,51 @@ namespace ExamProject.UI
             services.AddScoped<IExamRepository, ExamRepository>();
             services.AddScoped<IQuestionService, QuestionManager>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
-            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserManager>();
 
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x => { x.LoginPath = "/Home/Login"; });
 
-
-           
-
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x => { x.LoginPath = "/Home/Login"; });
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.LoginPath = "/login";
+                options.Events = new CookieAuthenticationEvents()
+                {
+                    OnSigningIn = async context =>
+                     {
+                         await Task.CompletedTask;
+                     },
+                    OnSignedIn = async context =>
+                      {
+                          await Task.CompletedTask;
+                      },
+                    OnValidatePrincipal = async context =>
+                    {
+                        await Task.CompletedTask;
+                    }
+                };
+            });
+        
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
+                options.AddPolicy("Admin",
+                   authBuilder =>
+                   {
+                       authBuilder.RequireRole("Admin");
+                   });
+                options.AddPolicy("Member",
+                   authBuilder =>
+                   {
+                       authBuilder.RequireRole("Member");
+                   });
             });
+
+
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
